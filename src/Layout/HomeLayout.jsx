@@ -4,73 +4,6 @@ import { Link, useNavigate} from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux"
 import Footer from "../Components/Footer";
 
-// function HomeLayout({Children}){
-
-//     function changeWidth() {
-//         const drawerSide = document.getElementsByClassName("drawer-side")
-//         drawerSide[0].style.width = 0;
-//     }
-
-//     function hideDrawer(){
-//         const element = document.getElementsByClassName("drawer-toggle")
-//         element[0].checked = false
-
-//         changeWidth();
-//     }
-
-
-//     return(
-//         <div className="min-h-[90vh]">
-//             <div className="drawer absolute left-0 z-50 w-fit">
-//                 <input className="drawer-toggle" id="my-drawer" type="checkbox"/>
-//                 <div className="drawer-content">
-//                     <label htmlFor="my-drawer" className="cursor-pointer relative">
-//                          <FiMenu
-//                          onClick={changeWidth}
-//                              size={"32px"}
-//                              className="font-bold m-4"
-//                          />
-
-//                     </label>
-//                 </div>
-//                 <div className="drawer-side w-0">
-//                     <label htmlFor="my-drawer" className="drawer-overlay">
-//                     </label>
-//                     {/* <ul className="menu p-4 w-48 sm:80  bg-base-100 text-base-content"> */}
-//                     <ul className="menu p-4 w-48 sm:w-80 bg-base-200 text-base-content relative">
-
-//                         <li className="w-fit absolute right-2 z-50">
-//                             <button onClick={hideDrawer}>
-//                                 <AiFillCloseCircle size={24}/>
-//                             </button>
-//                         </li>
-
-//                         <li>
-//                             <Link to="/">Home</Link>
-//                         </li>
-
-//                         <li>
-//                             <Link to="/courses">courses</Link>
-//                         </li>
-
-//                         <li>
-//                             <Link to="/contact">Contact Us</Link>
-//                         </li>
-
-//                         <li>
-//                             <Link to="/about">About Us</Link>
-//                         </li>
-//                     </ul>
-//                 </div>
-                
-//             </div>
-           
-//            {Children}
-//            <Footer/>
-//         </div>
-//     )
-
-// }
 
 function HomeLayout({ children }) {
 
@@ -122,7 +55,7 @@ function HomeLayout({ children }) {
                 <div className="drawer-side w-0">
                     <label htmlFor="my-drawer" className="drawer-overlay">
                     </label>
-                    <ul className="menu p-4 w-48 sm:w-80 bg-base-100 text-base-content relative">
+                    <ul className="menu h-[100%] p-4 w-48 sm:w-80 bg-base-100 text-base-content relative">
                         <li className="w-fit absolute right-2 z-50">
                             <button onClick={hideDrawer}>
                                 <AiFillCloseCircle size={24} />
@@ -153,7 +86,7 @@ function HomeLayout({ children }) {
                         </li>
 
                         {!isLoggedIn &&(
-                            <li className=" absolute bottom-3 w-[80%]">
+                            <li className=" absolute bottom-4 w-[90%]">
                                 <div className="w-full flex items-center justify-center">
                                     <button className="btn-primary bg-blue-950 px-4 py-1 font-semibold rounded-md w-full">
                                         <Link to={"/login"}>Login</Link>
@@ -167,15 +100,17 @@ function HomeLayout({ children }) {
                         )}
 
                         {isLoggedIn && (
-                            <div className="flex items-center justify-center w-full">
-                                <button className="btn-primary bg-blue-950 px-4 py-1 rounded-md font-semibold w-full">
-                                    <Link to={"/user/profile"}></Link>
-                                </button>
+                            <li className=" absolute bottom-4 w-[90%]">
+                                <div className="flex items-center justify-center w-full">
+                                    <button className="btn-primary bg-blue-950 px-4 py-1 rounded-md font-semibold w-full">
+                                        <Link to={"/user/profile"}></Link>
+                                    </button>
 
-                                <button className="btn-secondry bg-yellow-700 px-4 py-1 rounded-md font-semibold w-full">
-                                    <Link onClick={handleLogOut}>Log Out</Link>
-                                </button>
-                            </div>
+                                    <button className="btn-secondry bg-yellow-700 px-4 py-1 rounded-md font-semibold w-full">
+                                        <Link onClick={handleLogOut}>Log Out</Link>
+                                    </button>
+                                </div>
+                            </li>
                         )}
                     </ul>
                 </div>
