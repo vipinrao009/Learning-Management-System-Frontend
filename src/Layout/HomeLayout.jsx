@@ -68,7 +68,7 @@ function HomeLayout({ children }) {
 
                         {isLoggedIn && role ==='ADMIN' && (
                             <li>
-                                <Link to={"/admin/dashboard"}>
+                                <Link to={"/denied"}>
                                     Admin Dashboard
                                 </Link>
                             </li>
