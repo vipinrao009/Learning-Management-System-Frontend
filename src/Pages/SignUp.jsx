@@ -5,6 +5,7 @@ import {BsPersonCircle } from "react-icons/bs";
 import { Form, Link, useNavigate} from "react-router-dom";
 import {toast} from "react-hot-toast"
 import { createAccount } from '../Redux/Slices/AuthSlice';
+import { isEmail, isValidPassword } from "../helpers/regexMatcher";
 
 function SignUp(){
 
@@ -62,12 +63,12 @@ function SignUp(){
         }
         
         // checking the valid email
-        if(!signupData.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+        if(!isEmail(signupData.email)){
             toast.error("Invalid email id")
         }
 
         //checking password validation
-        if(!signupData.password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/)){
+        if(!isValidPassword(signupData.password)){
             toast.error("Password should be at least one uppercase letter, one lowercase letter, one special character, and one number")
         }
 
