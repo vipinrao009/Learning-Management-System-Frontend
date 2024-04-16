@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Profile(){
     
     const userData = useSelector((state)=>state?.auth?.data)
-    console.log(userData?.subscription?.status );
+    console.log(userData);
 
     return(
         <HomeLayout>
@@ -32,9 +32,9 @@ function Profile(){
                             <button>Change password</button>
                         </Link>
 
-                        <Link to={"/editprofile"} className="w-1/2 bg-yellow-500 hover:bg-yellow-600 text-center  transition-all ease-in-out duration-300 rounded-sm font-semibold py-2 cursor-pointer">
+                        <Link to={"/user/editprofile"} className="w-1/2 bg-yellow-500 hover:bg-yellow-600 text-center  transition-all ease-in-out duration-300 rounded-sm font-semibold py-2 cursor-pointer">
                             <button>
-                                Edit profile
+                                Edit profile       
                             </button>
                         </Link>
                     </div>
@@ -52,3 +52,5 @@ function Profile(){
 }
 
 export default Profile
+
+

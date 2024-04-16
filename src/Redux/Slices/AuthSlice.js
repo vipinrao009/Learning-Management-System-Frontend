@@ -4,10 +4,9 @@ import axiosInstance from "../../helpers/axiosInstance"
 
 const initialState = {
     isLoggedIn:localStorage.getItem('isLoggedIn') || false,
-    role:localStorage.getItem('role') || " ",
-    data:
-    JSON.parse(localStorage.getItem('data')) || {}
-}
+    role:localStorage.getItem('role') || "",
+    data: localStorage.getItem('data') != undefined ? JSON.parse(localStorage.getItem('data')) : {}
+} 
 
 export const createAccount = createAsyncThunk("/auth/signup", async (data) => {
     try {
@@ -45,7 +44,7 @@ export const logout = createAsyncThunk("/auth/logout",async()=>{
     try {
         const res = axiosInstance.get("user/logout")
         toast.promise(res,{
-            loading:"Wait! logout is in process....",
+            loading:"Wait! logout is in progress....",
             success:(data)=> {
                 return data?.data?.message
             },
@@ -57,6 +56,31 @@ export const logout = createAsyncThunk("/auth/logout",async()=>{
     }
 })
 
+export const updateProfile = createAsyncThunk("user/update/profile",async(data)=>{ //Asynce me hamesh single paramete send karana chahiye 
+    try {
+        const response = await axiosInstance.put(`user/update/${data[0]}`,data[1])
+        toast.promise(response,{
+            loading:"Wait! profile update is in progress...",
+            success:(data)=>{
+                return data?.data?.message
+            },
+            error:"Failed to update profile"
+        })
+        return (await response).data
+    } catch (error) {
+        toast.error(error?.response?.message)
+    }
+})
+
+
+export const getUserData = createAsyncThunk("/user/details", async () => {
+    try {
+    const res = await axiosInstance.get("user/getuser");
+    return (await res).data;
+    } catch (error) {
+    toast.error(error.message);
+    }
+    });
 const authSlice = createSlice({
     name:'auth',
     initialState,
@@ -77,6 +101,16 @@ const authSlice = createSlice({
             state.role = "";
             state.data = {}
         })
+
+        .addCase(getUserData.fulfilled, (state, action) => {
+            if(!action?.payload?.user) return;
+            localStorage.setItem("data", JSON.stringify(action?.payload?.user));
+            localStorage.setItem("isLoggedIn", true);
+            localStorage.setItem("role", action?.payload?.user?.role);
+            state.isLoggedIn = true;
+            state.data = action?.payload?.user;
+            state.role = action?.payload?.user?.role
+        });
     }
 })
 
