@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom"
+import { useLocation,Link} from "react-router-dom"
 import HomeLayout from "../Layout/HomeLayout"
 import { useSelector } from "react-redux";
 
 function Description(){
 
     const {state} = useLocation();
-    const {role} = useSelector((state)=> state.auth)
+    const {role,data} = useSelector((state)=> state.auth)
 
     return(
         <HomeLayout>
@@ -36,13 +36,18 @@ function Description(){
                                 </p>
                             </div>
                             {role === 'ADMIN' || data?.subscription?.status === 'ACTIVE' ? (
-                                <button className=" bg-yellow-500 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-600 transition-all ease-in-out duration-300">
+                                <button className=" bg-yellow-500 text-xl mt-2 rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-600 transition-all ease-in-out duration-300">
                                     Watch Lectures
                                 </button>
                             ) :(
-                                <button className=" bg-yellow-500 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-600 transition-all ease-in-out duration-300">
-                                    Subscribe
-                                </button>
+
+                                <Link to={"/checkout"}>
+                                    <button className=" bg-yellow-500 text-xl mt-2 rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-600 transition-all ease-in-out duration-300">
+                                        Subscribe
+                                    </button>  
+                                </Link>
+                                    
+                               
                             )}
                         </div>
                     </div>
