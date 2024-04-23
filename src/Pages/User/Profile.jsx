@@ -1,11 +1,23 @@
-import {useSelector } from "react-redux"
+import {useDispatch, useSelector } from "react-redux"
 import HomeLayout from "../../Layout/HomeLayout"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { cancelCourseBundle } from "../../Redux/Slices/RazorpaySlice";
+import { getUserData } from "../../Redux/Slices/AuthSlice";
+import toast from "react-hot-toast";
 
 function Profile(){
-    
+    const dispatch = useDispatch(); 
+    const navigate = useNavigate();
     const userData = useSelector((state)=>state?.auth?.data)
     console.log(userData);
+
+    async function handleCancellation(){
+       toast("Initiating the cancellation")
+       await dispatch(cancelCourseBundle());
+       await dispatch(getUserData())
+       toast.success("Cancellation completed !!!")
+       navigate("/")
+    }
 
     return(
         <HomeLayout>
@@ -24,7 +36,7 @@ function Profile(){
                         <p>Email: </p><p>{userData?.email}</p>
                         <p>Role: </p><p>{userData?.role}</p>
                         <p>Subscription: </p>
-                        <p>{userData?.subscription?.status === "active" ? "Action" : "Inactive"}</p>
+                        <p>{userData?.subscription?.status === "active" ? "active" : "Inactive"}</p>
                     </div>
 
                     <div className="flex items-center justify-between gap-3 pt-2">
@@ -40,7 +52,7 @@ function Profile(){
                     </div>
 
                     {userData?.subscription?.status === "active" && (
-                        <button className=" w-full bg-red-600 hover:bg-red-500 transition-all ease-in-out duration-300 rounded-sm font-semibold py-2 cursor-pointer text-center">
+                        <button onClick={handleCancellation} className=" w-full mt-[10px] bg-red-600 hover:bg-red-500 transition-all ease-in-out duration-300 rounded-sm font-semibold py-2 cursor-pointer text-center">
                             Cancel Subscription
                         </button>
                     )}

@@ -1,7 +1,16 @@
 import { AiFillCheckCircle } from "react-icons/ai"
 import HomeLayout from "../../Layout/HomeLayout"
 import { Link } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { getUserData } from "../../Redux/Slices/AuthSlice";
+import { useEffect } from "react";
 function CheckoutSuccess(){
+
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(getUserData)
+    })
+    
     return(
         <HomeLayout>
             <div className="min-h-[90vh] flex items-center justify-center text-white">
