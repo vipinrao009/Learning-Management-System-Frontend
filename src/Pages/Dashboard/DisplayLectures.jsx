@@ -33,8 +33,8 @@ function DisplayLectures(){
                     Course Name : {state?.title}
                 </div>
 
-                { lectures && lectures.length > 0 &&
-                    <div className="flex justify-center w-full gap-10">
+                { (lectures && lectures.length > 0) ?
+                    (<div className="flex justify-center w-full gap-10">
                         {/* Left section for the playing the videos and displaying the course details to the  admin */}
                         <div className="space-y-5 w-[60%] p-2 rounded-lg shadow-[0_0_10px_black]">
                                 <video 
@@ -94,7 +94,13 @@ function DisplayLectures(){
                             }
                         </ul>
 
-                     </div>
+                    </div>) :(
+                        role === "ADMIN" && (
+                            <button onClick={() => navigate("/course/addlecture", {state: {...state}})} className=" bg-green-800 px-2 py-1 rounded-md font-semibold text-sm">
+                                Add new lecture
+                            </button>
+                        )
+                    )
                 }
             </div>
         </HomeLayout>
