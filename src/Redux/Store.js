@@ -9,7 +9,7 @@ const store =configureStore({
         auth:authSliceReducer,
         course:courseSliceReducer,
         razorpay:paymentSliceReducer,
-        lectures:LectureSliceReducer
+        lecture:LectureSliceReducer
     },
     devTools:true
 });
