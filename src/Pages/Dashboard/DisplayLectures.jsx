@@ -9,9 +9,9 @@ function DisplayLectures(){
     const navigate = useNavigate();
     const {state} = useLocation();
     const dispatch = useDispatch();
-    const {lectures} = useSelector((state)=>state?.lectures)
+    const {lectures} = useSelector((state)=>state?.lecture) || {}
     const {role} = useSelector((state)=>state?.auth)
-
+ 
     const [currentVideo,setCurrentVideo] = useState(0);
 
     async function onDeleteLecture(courseId,lectureId){
@@ -20,10 +20,11 @@ function DisplayLectures(){
         dispatch(getCourseLecture(state._id))
     }
     useEffect(()=>{
-        console.log(state);
+        console.log(lectures);
+        console.log({state});
         if(!state) navigate("/courses")
         dispatch(getCourseLecture(state._id))
-    })
+    },[])
     return(
         <HomeLayout>
             <div className="flex flex-col gap-10 items-center justify-center min-h-[90vh] py-10 text-white">
@@ -35,7 +36,7 @@ function DisplayLectures(){
                 { lectures && lectures.length > 0 &&
                     <div className="flex justify-center w-full gap-10">
                         {/* Left section for the playing the videos and displaying the course details to the  admin */}
-                            <div>
+                        <div className="space-y-5 w-[60%] p-2 rounded-lg shadow-[0_0_10px_black]">
                                 <video 
                                     src={lectures && lectures[currentVideo]?.lecture?.secure_url}
                                     className=" object-fill w-full rounded-tl-lg rounded-tr-lg"
@@ -61,11 +62,11 @@ function DisplayLectures(){
                             </div>
 
                         {/* Right section for displaying the lectures */}
-                        <ul className="w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black] space-y-4">
-                            <li className=" font-semibold text-xl text-yellow-500 flex items-center justify-center">
+                        <ul className="w-[25%] p-2 rounded-lg shadow-[0_0_10px_black] space-y-4">
+                            <li className=" font-semibold text-xl text-yellow-500 flex items-center gap-12 justify-center">
                                 <p>Lectures list</p>
                                 {role === "ADMIN" && (
-                                    <button onClick={() => navigate("/course/addlecture", {state: {...state}})} className="btn-primary px-2 py-1 rounded-md font-semibold text-sm">
+                                    <button onClick={() => navigate("/course/addlecture", {state: {...state}})} className=" bg-green-800 px-2 py-1 rounded-md font-semibold text-sm">
                                         Add new lecture
                                     </button>
                                 )}
@@ -82,7 +83,7 @@ function DisplayLectures(){
                                         </p>
                                         {
                                             role=== "ADMIN" && (
-                                                <button onClick={()=>onDeleteLecture(state?._id, lectures?.id)} className="btn-accent px-2 py-1 rounded-md font-semibold text-sm">
+                                                <button onClick={()=>onDeleteLecture(state?._id, lecture?._id)} className=" bg-red-700 px-2 py-1 rounded-md font-semibold text-sm">
                                                     Delete lecture
                                                 </button>
                                             )
