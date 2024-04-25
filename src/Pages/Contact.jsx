@@ -70,7 +70,7 @@ function Contact(){
                             Name
                         </label>
                         <input 
-                            className=" bg-transparent px-2 py-1 rounded-sm"
+                            className=" bg-transparent border px-2 py-1 rounded-sm"
                             type="text"
                             id="name"
                             placeholder="Enter your name..."
@@ -85,7 +85,7 @@ function Contact(){
                             Email
                         </label>
                         <input 
-                            className=" bg-transparent px-2 py-1 rounded-sm"
+                            className=" bg-transparent border px-2 py-1 rounded-sm"
                             type="email"
                             id="email"
                             placeholder="Enter your email..."
@@ -100,7 +100,7 @@ function Contact(){
                             Message
                         </label>
                         <textarea 
-                            className=" bg-transparent px-2 py-1 rounded-sm h-40 resize-none"
+                            className=" bg-transparent px-2 py-1 border rounded-sm h-40 resize-none"
                             id="message"
                             placeholder="Enter your message..."
                             name="message"
