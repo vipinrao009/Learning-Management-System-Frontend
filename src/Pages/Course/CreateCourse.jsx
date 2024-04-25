@@ -87,7 +87,7 @@ function CreateCourse(){
                                             src={userInput.previewImage}
                                         />
                                     ):(
-                                    <div className="w-full h-44 m-auto flex items-center justify-center border">
+                                    <div className="w-full mt-4 h-48 m-auto flex items-center justify-center border">
                                             <h1 className="font-bold text-lg">Upload your course thumbnail</h1>
                                     </div>
                                     )}
@@ -123,7 +123,7 @@ function CreateCourse(){
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            <div className="flex flex-col gap-1">
+                            <div className="flex -mt-2 flex-col gap-1">
                                 <label htmlFor="createdBy" className="text-lg font-semibold">
                                     Course instructor
                                 </label>
@@ -170,7 +170,7 @@ function CreateCourse(){
                                     name="description"
                                     id="description"
                                     placeholder="Enter the course description"
-                                    className="bg-transparent px-2 py-1 h-24 overflow-y-scroll resize-none border"
+                                    className="bg-transparent px-2 py-1 h-28 overflow-y-scroll resize-none border"
                                     value={userInput.description}
                                     onChange={handleUserInput}
                                 />
