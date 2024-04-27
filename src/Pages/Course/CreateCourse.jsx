@@ -69,8 +69,8 @@ function CreateCourse(){
             <div className="flex items-center justify-center h-[100vh]">
                 <form onSubmit={onFormSubmit} className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white w-[700px] my-10 shadow-[0_0_10px_black] relative">   
                     
-                    <Link className="absolute  top-6 text-2xl link text-accent cursor-pointer">
-                         <AiOutlineArrowLeft onClick={navigate(-1)}/>
+                    <Link onClick={()=>navigate(-1)} className="absolute  top-6 text-2xl link text-accent cursor-pointer">
+                        <AiOutlineArrowLeft />
                     </Link>
 
                     <h1 className="text-center text-2xl font-bold">
