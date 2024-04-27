@@ -6,7 +6,7 @@ const initialState = {
     courseData:[]
 }
 
-export const getAllCourses = createAsyncThunk("/course/get",async ()=> {
+export const getAllCourses = createAsyncThunk("/course/delete",async ()=> {
     try {
         const response = axiosInstance.get("/course");
         toast.promise(response, {
@@ -16,6 +16,20 @@ export const getAllCourses = createAsyncThunk("/course/get",async ()=> {
         })
 
         return (await response).data.course;
+    } catch (error) {
+        toast.error(error?.response?.data?.message)
+    }
+})
+
+export const deleteCourse = createAsyncThunk("/course/get",async (id)=> {
+    try {
+        const response = axiosInstance.delete(`/course/${id}`);
+        toast.promise(response, {
+            loading:"deleting course data...",
+            success:"Course delete successfully",
+            error:"Failed to delete the course"
+        })
+        return (await response).data;
     } catch (error) {
         toast.error(error?.response?.data?.message)
     }
