@@ -75,7 +75,7 @@ function SignUp(){
         const formData = new FormData();
         formData.append("fullName",signupData.fullName)
         formData.append("email",signupData.email)
-        formData.append("password",signupData)
+        formData.append("password",signupData.password)
         formData.append("avatar",signupData.avatar)
 
         //dispatch create account action
