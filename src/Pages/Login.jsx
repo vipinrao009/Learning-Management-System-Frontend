@@ -65,7 +65,7 @@ function Login(){
                            name="email"
                            id="email"
                            placeholder="Enter your email"
-                           className=" bg-transparent px-2 py-1 border"
+                           className=" bg-transparent px-2 w-full py-2 border rounded-lg"
                            onChange={handleUserInput}
                            value={loginData.email}
                          />
@@ -79,18 +79,22 @@ function Login(){
                            name="password"
                            id="password"
                            placeholder="Enter your password"
-                           className=" bg-transparent px-2 py-1 border"
+                           className=" bg-transparent px-2 py-2 border rounded-lg"
                            onChange={handleUserInput}
                            value={loginData.password}
                          />
                     </div>
 
-                    <button type="submit"  className="w-80 px-2 py-2 mt-2  font-semibold cursor-pointer bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-200 rounded-sm">
+                    <p className="-mr-[12rem]">
+                     <Link to='/forget-password' className="text-blue-600 cursor-pointer">Forgot password?</Link>
+                    </p>
+
+                    <button type="submit"  className="w-80 px-2 py-2 mt-2  font-semibold cursor-pointer bg-yellow-500 hover:bg-yellow-600 transition-all ease-in-out duration-200 rounded-lg">
                         Login
                     </button>
 
                     <p className="mb-3">
-                        Don't have an account ? <Link to='/signup' className=" text-accent cursor-pointer">Sign Up</Link>
+                        Don't have an account ? <Link to='/signup' className=" text-blue-600 hover:text-blue-600 cursor-pointer">Sign Up</Link>
                     </p>
                 </form>
             </div>
