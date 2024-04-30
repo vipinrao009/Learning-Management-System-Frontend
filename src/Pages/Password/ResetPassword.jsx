@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
-import HomeLayout from "../Layout/HomeLayout"
+import HomeLayout from "../../Layout/HomeLayout"
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
-import { resetPassword } from "../Redux/Slices/AuthSlice";
+import { resetPassword } from "../../Redux/Slices/AuthSlice";
 
 
 
