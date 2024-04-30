@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom"
 
 function CourseCard({data}){
-
+    
     const navigate = useNavigate()
 
     return(
@@ -28,7 +28,7 @@ function CourseCard({data}){
                     </p>
                     <p className="font-semibold">
                         <span className="text-yellow-500 font-bold">Total lectures : </span>
-                        {data?.numberoflecturs}
+                        {data?.numberOfLecture}
                     </p>
                     <p className="font-semibold">
                         <span className=" text-yellow-500 font-bold">Instructor : </span>

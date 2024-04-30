@@ -93,17 +93,17 @@ export const getUserData = createAsyncThunk("/user/details", async () => {
 
 export const forgotPassword = createAsyncThunk("/user/forgot", async (email) => {
   try {
-    const res = axiosInstance.post("user/forget",email);
+    const res = await axiosInstance.post("user/forget",email);
     toast.promise(res,{
       loading:"Sending the token on your email...",
       success:(data)=>{
         return data?.data?.message;
-      },
-      error:"Failed to send the token"
+      }
+      // Omitting the error callback to prevent displaying Axios-specific error messages
     })
-    return (await res).data;
+    return res.data;
   } catch (error) {
-    toast.error(error.message);
+    toast.error(error?.response?.data?.message || "Failed to send token");
   }
 });
 

@@ -8,7 +8,7 @@ function CheckoutSuccess(){
 
     const dispatch = useDispatch();
     useEffect(()=>{
-        dispatch(getUserData)
+        dispatch(getUserData())
     })
     
     return(
