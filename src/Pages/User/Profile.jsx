@@ -40,7 +40,7 @@ function Profile(){
                     </div>
 
                     <div className="flex items-center justify-between gap-3 pt-2">
-                        <Link to="/changepassword"className="w-1/2 bg-yellow-500 hover:bg-yellow-600 text-center transition-all ease-in-out duration-300 rounded-sm font-semibold py-2 cursor-pointer">
+                        <Link to='/user/profile/changepassword' className="w-1/2 bg-yellow-500 hover:bg-yellow-600 text-center transition-all ease-in-out duration-300 rounded-sm font-semibold py-2 cursor-pointer">
                             <button>Change password</button>
                         </Link>
 

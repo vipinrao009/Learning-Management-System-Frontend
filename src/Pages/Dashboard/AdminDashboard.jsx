@@ -11,8 +11,9 @@ import { FaUsers } from "react-icons/fa"
 import { FcSalesPerformance } from "react-icons/fc"
 import { GiMoneyStack } from "react-icons/gi"
 import { BsCollectionPlayFill, BsTrash } from "react-icons/bs"
+import { Colors } from "chart.js"
 
-chartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title)
+chartJS.register(ArcElement,Colors, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title)
 
 function AdminDashboard(){
 
@@ -30,7 +31,8 @@ function AdminDashboard(){
                 data:[allUsersCount,subscribedCount],
                 backgroundColor:["yellow","green"],
                 borderWidth:1,
-                borderColor:["yellow","green"]
+                borderColor:["yellow","green"],
+                Colors:"white"
             }
         ]
     }
@@ -148,7 +150,7 @@ function AdminDashboard(){
                 
                 <table className="table overflow-x-scroll text-center">
                     <thead>
-                        <tr>
+                        <tr className="text-white text-base font-semibold">
                             <th>S No</th>
                             <th>Course Title</th>
                             <th>Course Category</th>

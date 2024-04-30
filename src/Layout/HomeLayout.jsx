@@ -17,20 +17,23 @@ function HomeLayout({ children }) {
     //for displaying the option acc to the role
     const role = useSelector((state) =>state?.auth?.role)
 
+   // function for changing the drawer width on menu button click
     function changeWidth() {
         const drawerSide = document.getElementsByClassName("drawer-side");
         drawerSide[0].style.width = 'auto';
     }
 
+    // function to hide the drawer on close button click
     function hideDrawer() {
         const element = document.getElementsByClassName("drawer-toggle");
         element[0].checked = false;
-
+        // collapsing the drawer-side width to zero
         const drawerSide = document.getElementsByClassName("drawer-side");
         drawerSide[0].style.width = '0';
     }
-
-   async function handleLogOut(e) {
+   
+    // function to handle logout
+    async function handleLogOut(e) {
         e.preventDefault();
 
         const res = await dispatch(logout())
@@ -56,7 +59,7 @@ function HomeLayout({ children }) {
                 <div className="drawer-side w-0">
                     <label htmlFor="my-drawer" className="drawer-overlay">
                     </label>
-                    <ul className="menu h-[100%] p-4 w-48 sm:w-80 bg-base-200 text-base-content relative">
+                    <ul className="menu h-[100%] p-4 w-48 sm:w-80 bg-base-200 text-white font-normal text-base relative">
                         <li className="w-fit absolute right-2 z-50">
                             <button onClick={hideDrawer}>
                                 <AiFillCloseCircle size={24} />
@@ -97,13 +100,18 @@ function HomeLayout({ children }) {
                         {!isLoggedIn &&(
                             <li className=" absolute bottom-4 w-[90%]">
                                 <div className="w-full flex items-center justify-center">
-                                    <button className="btn-primary bg-blue-600 text-white px-4 py-1 font-semibold rounded-md w-full">
-                                        <Link to={"/login"}>Login</Link>
-                                    </button>
 
-                                    <button className="btn-secondry bg-yellow-700 text-white px-4 py-1 font-semibold rounded-md w-full">
-                                        <Link to={"/signup"}>Signup</Link>
-                                    </button>
+                                    <Link to={"/login"}>
+                                        <button className="btn-primary bg-blue-700 text-white lg:px-10 px-5 py-2 font-semibold rounded-md w-full">
+                                           Login
+                                        </button>
+                                    </Link>
+    
+                                    <Link to={"/signup"}>
+                                        <button className="btn-secondry bg-yellow-700 text-white px-4 lg:px-10 py-2 font-semibold rounded-md w-full">
+                                            Signup
+                                        </button>
+                                    </Link>
                                 </div>
                             </li>
                         )}
@@ -111,13 +119,18 @@ function HomeLayout({ children }) {
                         {isLoggedIn && (
                             <li className=" absolute bottom-4 w-[90%]">
                                 <div className="flex items-center justify-center w-full">
-                                    <button className="btn-primary text-white bg-blue-950 px-4 py-1 rounded-md font-semibold w-full">
-                                        <Link to={"/user/profile"}>Profile</Link>
-                                    </button>
 
-                                    <button className="btn-secondry text-white bg-yellow-700 px-4 py-1 rounded-md font-semibold w-full">
-                                        <Link onClick={handleLogOut}>Log Out</Link>
-                                    </button>
+                                    <Link to={"/user/profile"}>
+                                        <button className="btn-primary text-white  bg-blue-700 px-1 lg:px-9 py-2 rounded-md font-semibold w-full">
+                                            Profile
+                                        </button>
+                                    </Link>
+
+                                    <Link onClick={handleLogOut}>
+                                        <button className="btn-secondry text-white bg-yellow-700 px-1 lg:px-7 py-2 rounded-md font-semibold w-full">
+                                            Log Out
+                                        </button>
+                                    </Link>
                                 </div>
                             </li>
                         )}
