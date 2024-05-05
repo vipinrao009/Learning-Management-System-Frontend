@@ -85,9 +85,11 @@ function HomeLayout({ children }) {
                             </li>
                         )}
 
-                        <li>
-                            <Link to="/courses">All Courses</Link>
-                        </li>
+                        {isLoggedIn && (
+                            <li>
+                                <Link to="/courses">All Courses</Link>
+                            </li>
+                        )}
 
                         <li>
                             <Link to="/contact">Contact Us</Link>
