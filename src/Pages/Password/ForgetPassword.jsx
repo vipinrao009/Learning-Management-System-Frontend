@@ -4,6 +4,8 @@ import { forgotPassword } from "../../Redux/Slices/AuthSlice";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { isEmail } from "../../helpers/regexMatcher";
+import toast from "react-hot-toast";
 
 function ForgetPassword(){
     const dispatch = useDispatch();
@@ -23,13 +25,27 @@ function ForgetPassword(){
 
     async function onSubmit(e){
         e.preventDefault()
-        await dispatch(forgotPassword(data))
+
+        // checking for the empty field
+        if (!(data.email)) {
+         toast.error("Email is mandatory");
+         return;
+        }
+
+        // checking the valid email
+        if(!isEmail(data.email)){
+           toast.error("Invalid email id")
+           return;
+        }
+
+        const res = await dispatch(forgotPassword(data))
+        setData("")
     }
 
     return(
         <HomeLayout>
             <div className="flex  items-center justify-center h-[100vh]">
-                <form  onSubmit={onSubmit}>
+                <form noValidate onSubmit={onSubmit}>
                     <div className="flex  flex-col items-center text-white justify-center shadow-[0_0_10px_black] gap-2 px-4 py-2">
                         <h1 className="text-xl font-bold">
                             Forget Password
