@@ -67,7 +67,7 @@ function CreateCourse(){
     return(
         <HomeLayout>
             <div className="flex items-center justify-center h-[100vh]">
-                <form onSubmit={onFormSubmit} className="flex flex-col justify-center gap-5 rounded-lg p-4 text-white w-[700px] my-10 shadow-[0_0_10px_black] relative">   
+                <form onSubmit={onFormSubmit} className="flex flex-col mx-5 justify-center gap-5 rounded-lg p-4 text-white w-[700px] my-10 shadow-[0_0_10px_black] relative">   
                     
                     <Link onClick={()=>navigate(-1)} className="absolute  top-6 text-2xl link text-accent cursor-pointer">
                         <AiOutlineArrowLeft />
@@ -77,7 +77,7 @@ function CreateCourse(){
                         Create New Course
                     </h1>
 
-                    <main className="grid grid-cols-2 gap-x-10">
+                    <main className="lg:grid grid-cols-2 gap-x-10">
                         <div className="gap-y-6">
                             <div>
                                 <label htmlFor="image_uploade" className="cursor-pointer">
@@ -123,7 +123,7 @@ function CreateCourse(){
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            <div className="flex -mt-2 flex-col gap-1">
+                            <div className="flex mt-2 lg:-mt-2 flex-col gap-1">
                                 <label htmlFor="createdBy" className="text-lg font-semibold">
                                     Course instructor
                                 </label>
@@ -134,7 +134,7 @@ function CreateCourse(){
                                     name="createdBy"
                                     id="createdBy"
                                     placeholder="Enter the course instructor"
-                                    className=" bg-transparent px-2 py-1 border"
+                                    className=" bg-transparent px-2 py-2 border"
                                     value={userInput.createdBy}
                                     onChange={handleUserInput}
                                 />
@@ -152,7 +152,7 @@ function CreateCourse(){
                                     name="category"
                                     id="category"
                                     placeholder="Enter the course category"
-                                    className=" bg-transparent px-2 py-1 border"
+                                    className=" bg-transparent px-2 py-2 border"
                                     value={userInput.category}
                                     onChange={handleUserInput}
                                 />
@@ -170,7 +170,7 @@ function CreateCourse(){
                                     name="description"
                                     id="description"
                                     placeholder="Enter the course description"
-                                    className="bg-transparent px-2 py-1 h-28 overflow-y-scroll resize-none border"
+                                    className="bg-transparent px-2 py-2 h-28 overflow-y-scroll resize-none border"
                                     value={userInput.description}
                                     onChange={handleUserInput}
                                 />
@@ -179,7 +179,7 @@ function CreateCourse(){
                         </div>
                     </main>
 
-                    <button formNoValidate type="submit" className="w-full py-3 px-1 font-semibold text-lg rounded-sm bg-yellow-500 hover:bg-yellow-600 cursor-pointer transition-all ease-in-out duration-300">
+                    <button formNoValidate type="submit" className="w-full py-3 px-2 font-semibold text-lg rounded-sm bg-yellow-500 hover:bg-yellow-600 cursor-pointer transition-all ease-in-out duration-300">
                         Create course
                     </button>
                     

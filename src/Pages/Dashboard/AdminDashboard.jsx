@@ -77,11 +77,11 @@ function AdminDashboard(){
     return(
         <HomeLayout>
             <div className="min-h-[100vh] pt-5  flex flex-col flex-wrap gap-10 text-white">
-                <h1 className="text-5xl text-yellow-500 font-semibold text-center">
+                <h1 className="text-[2rem] lg:text-5xl text-yellow-500 font-semibold text-center">
                     Admin Dashboard
                 </h1>
 
-                <div className="mx-10 m-auto gap-5 grid grid-cols-2">
+                <div className="mx-10 m-auto gap-5 lg:grid grid-cols-2">
                     <div className="flex flex-col items-center shadow-[0_0_5px_gray] rounded-md p-5">
                         <div className="w-80 h-80">
                             <Pie data={userData}/>
@@ -106,7 +106,7 @@ function AdminDashboard(){
                         </div>
                     </div>
 
-                    <div className="flex flex-col items-center gap-5 rounded-md px-2 shadow-[0_0_4px_gray]">
+                    <div className="flex flex-col items-center mt-6 lg:mt-0 gap-5 rounded-md px-2 shadow-[0_0_4px_gray]">
                         <div className="h-80 w-full relative">
                             <Bar className=" absolute bottom-0 h-80 w-full" data={salesData}/>
                         </div>
@@ -132,8 +132,8 @@ function AdminDashboard(){
                     </div>
                 </div>
 
-                <div className="w-[80%] mx-[10%] self-center flex items-center justify-center gap-10">
-                    <div className="w-full flex items-center justify-between">
+                <div className="w-[80%] mx-10  flex items-center justify-center gap-10">
+                    <div className="w-full flex items-center lg:justify-between">
                         <h1 className="text-center text-3xl font-semibold">
                             Course overview
                         </h1>
@@ -148,65 +148,67 @@ function AdminDashboard(){
                 </div>
 
                 
-                <table className="table overflow-x-scroll text-center">
-                    <thead>
-                        <tr className="text-white text-base font-semibold">
-                            <th>S No</th>
-                            <th>Course Title</th>
-                            <th>Course Category</th>
-                            <th>Instructor</th>
-                            <th>Total Lecture</th>
-                            <th>Description</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
+                <div className="w-full overflow-x-auto">                 
+                    <table className="table overflow-x-scroll text-center">
+                        <thead>
+                            <tr className="text-white text-base font-semibold">
+                                <th>S No</th>
+                                <th>Course Title</th>
+                                <th>Course Category</th>
+                                <th>Instructor</th>
+                                <th>Total Lecture</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        {myCourses ?.map((course,idx)=>{
-                            return(
-                                <tr key={course._id}>
-                                    <td>{idx+1}</td>
-                                    <td>
-                                        <textarea readOnly value={course?.title} className="w-40 h-auto bg-transparent resize-none"></textarea>
-                                    </td>
-                                    <td>
-                                        {course?.category}
-                                    </td>
+                        <tbody>
+                            {myCourses ?.map((course,idx)=>{
+                                return(
+                                    <tr key={course._id}>
+                                        <td>{idx+1}</td>
+                                        <td>
+                                            <textarea readOnly value={course?.title} className="w-40 h-auto bg-transparent resize-none"></textarea>
+                                        </td>
+                                        <td>
+                                            {course?.category}
+                                        </td>
 
-                                    <td>
-                                        {course?.createdBy}
-                                    </td>
+                                        <td>
+                                            {course?.createdBy}
+                                        </td>
 
-                                    <td>
-                                        {course?.numberOfLecture}
-                                    </td>
+                                        <td>
+                                            {course?.numberOfLecture}
+                                        </td>
 
-                                    <td className="max-w-28  mr-1 overflow-hidden text-ellipsis whitespace-nowrap">
-                                        <textarea
-                                            readOnly
-                                            className="w-[7rem] p-1 h-auto bg-transparent resize-none"
-                                            value={course?.description}
-                                        ></textarea>
-                                    </td>
+                                        <td className="max-w-28 mr-1 overflow-hidden text-ellipsis whitespace-nowrap">
+                                            <textarea
+                                                readOnly
+                                                className="w-[7rem] p-1 h-auto bg-transparent resize-none"
+                                                value={course?.description}
+                                            ></textarea>
+                                        </td>
 
-                                    <td className="flex items-center justify-center gap-4">
-                                        <button 
-                                             className="bg-green-500 hover:bg-green-600 transition-all ease-in-out duration-300 px-4 py-2 text-xl rounded-md font-bold"
-                                            onClick={()=> navigate("/course/displayLectures", {state:{... course}})}>
-                                            <BsCollectionPlayFill/>
-                                        </button>
+                                        <td className="flex items-center justify-center gap-4">
+                                            <button 
+                                                className="bg-green-500 hover:bg-green-600 transition-all ease-in-out duration-300 px-4 py-2 text-xl rounded-md font-bold"
+                                                onClick={()=> navigate("/course/displayLectures", {state:{... course}})}>
+                                                <BsCollectionPlayFill/>
+                                            </button>
 
-                                        <button 
-                                             className="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-300 px-4 py-2 text-xl rounded-md font-bold"
-                                            onClick={()=>onCourseDelete(course._id)}>
-                                            <BsTrash/>
-                                        </button>
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
+                                            <button 
+                                                className="bg-red-500 hover:bg-red-600 transition-all ease-in-out duration-300 px-4 py-2 text-xl rounded-md font-bold"
+                                                onClick={()=>onCourseDelete(course._id)}>
+                                                <BsTrash/>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </HomeLayout>

@@ -6,8 +6,8 @@ function HomePage(){
     return(
         // as child props pass kar rahe ho HomeLayout ke ander && aur vo as child jayega HomeLayout ko milega and uska access nhi hoga 
         <HomeLayout> 
-            <div className="pt-10 text-white flex items-center justify-center gap-10 mx-16 h-[90vh]">
-                <div className="w-1/2 space-y-6">
+            <div className="sm:pt-4 mx-6 lg:pt-10 text-white flex flex-col lg:flex-row items-center justify-center gap-10 lg:mx-16 h-[90vh]">
+                <div className="lg:w-1/2  order-2 lg:-order-none space-y-6">
                     <h1 className="text-4xl font-semibold">
                         Find out best
                         <span className="ml-2 text-yellow-500 font-bold">
@@ -34,7 +34,7 @@ function HomePage(){
                     </div>
                 </div>
 
-                <div className="w-1/2 flex items-center justify-center">
+                <div className="lg:w-1/2 flex items-center justify-center">
                     <img src={homePageMainImage}/>
                 </div>
             </div>

@@ -57,7 +57,7 @@ function Contact(){
     }
     return(
         <HomeLayout>
-            <div className="flex items-center justify-center h-[100vh]">
+            <div className="flex items-center justify-center h-[90vh]">
                 <form 
                     onSubmit={onFormSubmit}
                     noValidate
@@ -70,7 +70,7 @@ function Contact(){
                             Name
                         </label>
                         <input 
-                            className=" bg-transparent border px-2 py-1 rounded-sm"
+                            className=" bg-transparent border px-2 py-2 rounded-sm"
                             type="text"
                             id="name"
                             placeholder="Enter your name..."
@@ -85,7 +85,7 @@ function Contact(){
                             Email
                         </label>
                         <input 
-                            className=" bg-transparent border px-2 py-1 rounded-sm"
+                            className=" bg-transparent border px-2 py-2 rounded-sm"
                             type="email"
                             id="email"
                             placeholder="Enter your email..."

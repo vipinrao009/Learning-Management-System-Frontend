@@ -104,13 +104,13 @@ function HomeLayout({ children }) {
                                 <div className="w-full flex items-center justify-center">
 
                                     <Link to={"/login"}>
-                                        <button className="btn-primary bg-blue-700 text-white lg:px-10 px-5 py-2 font-semibold rounded-md w-full">
+                                        <button className="btn-primary bg-blue-700 text-white lg:px-10 px-[.85rem] py-2 font-semibold rounded-md w-full">
                                            Login
                                         </button>
                                     </Link>
     
                                     <Link to={"/signup"}>
-                                        <button className="btn-secondry bg-yellow-700 text-white px-4 lg:px-10 py-2 font-semibold rounded-md w-full">
+                                        <button className="btn-secondry bg-yellow-700 text-white px-[.70rem] lg:px-10 py-2 font-semibold rounded-md w-full">
                                             Signup
                                         </button>
                                     </Link>
@@ -123,13 +123,13 @@ function HomeLayout({ children }) {
                                 <div className="flex items-center justify-center w-full">
 
                                     <Link to={"/user/profile"}>
-                                        <button className="btn-primary text-white  bg-blue-700 px-1 lg:px-9 py-2 rounded-md font-semibold w-full">
+                                        <button className="btn-primary text-white  bg-blue-700 px-[.40rem] lg:px-9 py-2 rounded-md font-semibold w-full">
                                             Profile
                                         </button>
                                     </Link>
 
                                     <Link onClick={handleLogOut}>
-                                        <button className="btn-secondry text-white bg-yellow-700 px-1 lg:px-7 py-2 rounded-md font-semibold w-full">
+                                        <button className="btn-secondry text-white bg-yellow-700 px-[.40rem] lg:px-7 py-2 rounded-md font-semibold w-full">
                                             Log Out
                                         </button>
                                     </Link>

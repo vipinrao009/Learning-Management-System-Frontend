@@ -29,14 +29,14 @@ function DisplayLectures(){
         <HomeLayout>
             <div className="flex flex-col gap-10 items-center justify-center min-h-[90vh] py-10 text-white">
                 
-                <div className="text-yellow-500 font-semibold text-2xl">
+                <div className="text-yellow-500 flex items-center mx-3 justify-center font-semibold text-2xl">
                     Course Name : {state?.title}
                 </div>
 
                 { (lectures && lectures.length > 0) ?
-                    (<div className="flex justify-center w-full gap-10">
+                    (<div className=" p-3 lg:flex justify-center w-full gap-10">
                         {/* Left section for the playing the videos and displaying the course details to the  admin */}
-                        <div className="space-y-5 w-[60%] p-2 rounded-lg shadow-[0_0_10px_black]">
+                        <div className="space-y-5 lg:w-[60%] p-2 rounded-lg shadow-[0_0_10px_black]">
                                 <video 
                                     src={lectures && lectures[currentVideo]?.lecture?.secure_url}
                                     className=" object-fill w-full rounded-tl-lg rounded-tr-lg"
@@ -62,7 +62,7 @@ function DisplayLectures(){
                             </div>
 
                         {/* Right section for displaying the lectures */}
-                        <ul className="w-[25%] p-2 rounded-lg shadow-[0_0_10px_black] space-y-4">
+                        <ul className="lg:w-[25%] p-2 rounded-lg shadow-[0_0_10px_black] space-y-4">
                             <li className=" font-semibold text-xl text-yellow-500 flex items-center gap-12 justify-center">
                                 <p>Lectures list</p>
                                 {role === "ADMIN" && (
