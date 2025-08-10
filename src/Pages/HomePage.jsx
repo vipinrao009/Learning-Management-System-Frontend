@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom"
 import HomeLayout from "../Layout/HomeLayout"
 import homePageMainImage from "../assets/Images/homePageMainImage.png"
+import ServerWakeMessage from "./ServerWakeMessage"
 
 function HomePage(){
     return(
         // as child props pass kar rahe ho HomeLayout ke ander && aur vo as child jayega HomeLayout ko milega and uska access nhi hoga 
         <HomeLayout> 
+            <ServerWakeMessage apiUrl={'https://lms-backend-rtvv.onrender.com/api/v1/user/getuser'}/>
             <div className="sm:pt-4 mx-6 lg:pt-10 text-white flex flex-col lg:flex-row items-center justify-center gap-10 lg:mx-16 h-[90vh]">
                 <div className="lg:w-1/2  order-2 lg:-order-none space-y-6">
                     <h1 className="text-4xl font-semibold">
