@@ -25,7 +25,7 @@ export default function ServerWakeMessage({ apiUrl }) {
       <h2 className="sm:text-xl md:text-2xl font-bold text-primary">
         ⚡Waking up the server...
       </h2>
-      <p className="text-base text-gray-700 mt-2">
+      <p className="text-base text-white mt-2">
         This may take{" "}
         <span className="font-semibold text-red-600">30–60 seconds</span> on first load.  
         Thanks for waiting 😊
