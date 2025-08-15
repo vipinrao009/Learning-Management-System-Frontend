@@ -53,9 +53,14 @@ function Login(){
     }
     return(
         <HomeLayout>
-            <div className="flex overflow-x-auto items-center p-4 justify-center h-[100vh]">
-                <form noValidate onSubmit={onLogin} className="flex items-center justify-center flex-col gap-3 p-2 md:p-0 rounded-lg text-white w-96 shadow-[0_0_10px_black]">
-                    <h1 className="text-2xl mt-2 font-bold text-center">Login Page</h1>
+            <div className="flex items-center p-4 justify-center h-[100vh]">
+                <form noValidate onSubmit={onLogin} className="flex flex-col gap-3 p-6 rounded-lg shadow-[0_0_10px_black] text-white w-96 bg-opacity-80">
+                    <div className="bg-gray-800 p-3 rounded-lg text-sm">
+                        <h3 className="font-semibold text-center border-b-slate-50 mb-1">Admin Credentials (Demo)</h3>
+                        <p>Email: vipinrao2018@gmail.com</p>
+                        <p>Password: Admin@1234</p>
+                    </div> 
+                    <h1 className="text-2xl mt-2 font-bold text-center">Login</h1>
 
                     <div className="flex w-80 flex-col gap-1">
                         <label htmlFor="email" className=" font-semibold">Email</label>
