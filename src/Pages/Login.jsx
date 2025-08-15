@@ -54,7 +54,7 @@ function Login(){
     return(
         <HomeLayout>
             <div className="flex overflow-x-auto items-center p-4 justify-center h-[100vh]">
-                <form noValidate onSubmit={onLogin} className="flex items-center justify-center flex-col gap-3 rounded-lg text-white w-96 shadow-[0_0_10px_black]">
+                <form noValidate onSubmit={onLogin} className="flex items-center justify-center flex-col gap-3 p-2 md:p-0 rounded-lg text-white w-96 shadow-[0_0_10px_black]">
                     <h1 className="text-2xl mt-2 font-bold text-center">Login Page</h1>
 
                     <div className="flex w-80 flex-col gap-1">
