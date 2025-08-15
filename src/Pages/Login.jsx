@@ -54,8 +54,8 @@ function Login(){
     return(
         <HomeLayout>
             <div className="flex items-center p-4 justify-center h-[100vh]">
-                <form noValidate onSubmit={onLogin} className="flex flex-col gap-3 p-6 rounded-lg shadow-[0_0_10px_black] text-white w-96 bg-opacity-80">
-                    <div className="bg-gray-800 p-3 rounded-lg text-sm">
+                <form noValidate onSubmit={onLogin} className="flex items-center justify-center flex-col gap-3 p-2 md:p-0 rounded-lg text-white w-96 shadow-[0_0_10px_black]">
+                    <div className="bg-gray-800 w-full p-3 rounded-lg text-sm">
                         <h3 className="font-semibold text-center border-b-slate-50 mb-1">Admin Credentials (Demo)</h3>
                         <p>Email: vipinrao2018@gmail.com</p>
                         <p>Password: Admin@1234</p>
