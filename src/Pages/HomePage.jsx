@@ -21,7 +21,7 @@ function HomePage(){
                         We have large libray of the courses taught by highly skilled and qualified faculities at a very affordable cost
                     </p>
 
-                    <div className=" space-x-6">
+                    <div className="flex space-x-6">
                         <Link to={"/courses"}>
                             <button className=" bg-yellow-500 rounded-md px-5 py-3 text-lg cursor-pointer hover:bg-yellow-600 transition-all ease-in-out duration-300 ">
                                 Explore courses
