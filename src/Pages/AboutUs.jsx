@@ -7,7 +7,7 @@ function AboutUs(){
     
     return(
         <HomeLayout>
-            <div className=" lg:pl-20 pt-20 flex mx-5 flex-col text-white">
+            <div className="lg:pl-20 pt-20 flex p-4 mx-5 flex-col text-white">
                 <div className="lg:flex items-center justify-center gap-5">
                   
                     <div className="lg:hidden">

@@ -98,7 +98,7 @@ function SignUp(){
     }
     return(
         <HomeLayout>
-            <div className="flex overflow-x-auto items-center justify-center h-[100vh]">
+            <div className="flex overflow-x-auto p-4 items-center justify-center h-[100vh]">
                 <form noValidate onSubmit={createNewAccount} className="flex items-center justify-center flex-col gap-3 rounded-lg text-white w-96 shadow-[0_0_10px_black]">
                     <h1 className="text-2xl mt-2 font-bold text-center">Registration Form</h1>
                     <label htmlFor="image_uploads" className="cursor-pointer">
